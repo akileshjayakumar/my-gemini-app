@@ -202,7 +202,7 @@ button:focus {
 
 /* Footer styling */
 .footer {
-  background-color: #121212; /* Matching the body background for consistency */
+  background-color: #000000; /* Matching the body background for consistency */
   color: #ffffff;
   text-align: center;
   padding: 1rem 0; /* Adjust padding */
