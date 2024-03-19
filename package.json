@@ -2,6 +2,9 @@
   "name": "gemini-demo",
   "private": true,
   "version": "0.0.0",
+  "build": {
+    "outputDirectory": "./build"
+  },
   "type": "module",
   "scripts": {
     "dev": "vite",
