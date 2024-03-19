@@ -1,0 +1,217 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap");
+
+/* Base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  margin: 0; /* Remove the default margin for a full-width layout */
+  padding: 24px; /* Add padding to prevent content from sticking to edges */
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased; /* Enhance text rendering */
+  --accent-color: #076EFF; /* Primary color for interactive elements */
+  color: #333; /* Darker text for better readability */
+  background: #000000; /* Light background to reduce eye strain */
+}
+
+main {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  width: auto; /* Auto width based on content */
+  padding: 24px;
+  max-width: 800px; /* Increased max-width for better use of space */
+  margin: 48px auto; /* More vertical margin for clarity */
+  border-radius: 12px; /* Softer border radius */
+  background-color: #ffffff; /* Ensure high contrast for readability */
+  transition: transform 0.3s ease; /* Smooth transition for interactive feedback */
+}
+
+h1 {
+  font-size: 28px; /* Larger font size for better visibility */
+  margin-bottom: 16px; /* Spacing after heading */
+  text-align: center; /* Center align the heading */
+}
+
+
+
+
+.image-choice:hover,
+.image-choice:focus-within {
+  transform: scale(1.03); /* Slight scale to indicate interactivity */
+}
+
+.image-choice:has(:checked)::before,
+.image-choice:has(:checked)::after {
+  box-shadow: 0 0 0 4px var(--accent-color), 0 0 15px rgba(7, 110, 255, 0.5); /* Add glow effect on selection */
+}
+
+.prompt-box {
+  display: grid; /* Use grid for alignment */
+  grid-template-columns: 1fr auto; /* Responsive columns for input and button */
+  gap: 16px; /* Space between elements */
+  margin-top: 32px; /* Spacing before the prompt box */
+}
+
+input,
+button {
+  height: 48px; /* Increase height for better clickability */
+  font-size: 16px; /* Readable font size */
+  border: 2px solid #ccc; /* Visible border */
+}
+
+button {
+  background-color: var(--accent-color); /* Use accent color */
+  color: white;
+  transition: background-color 0.2s, transform 0.2s; /* Smooth transitions for feedback */
+}
+
+button:hover {
+  background-color: darken(var(--accent-color), 10%); /* Darken button on hover */
+  transform: translateY(-2px); /* Lift button slightly */
+}
+
+button:active {
+  transform: translateY(1px); /* Press down button on active */
+}
+
+.image-picker {
+  display: grid; /* Use grid layout for better control */
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); /* Responsive columns that adjust to screen size */
+  gap: 16px; /* Consistent gap between images */
+  justify-content: center; /* Center the images in the container */
+  padding: 16px 0; /* Padding top and bottom */
+}
+
+.image-choice {
+  position: relative;
+  border-radius: 12px; /* Soften the edges */
+  overflow: hidden; /* Ensure overflow content is not visible */
+  transition: transform 0.3s ease; /* Smooth transform effect for interactivity */
+  cursor: pointer; /* Indicate clickable items */
+}
+
+.image-choice:hover,
+.image-choice:focus-within {
+  transform: scale(1.05); /* Slightly enlarge on hover/focus for feedback */
+  z-index: 10; /* Ensure the hovered/focused item is above others */
+}
+
+.image-choice img {
+  height: auto; /* Maintain aspect ratio */
+  transition: transform 0.3s ease-out; /* Smooth transition for the image */
+}
+
+.image-choice:has(:checked)::before {
+  content: '✓';
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  background-color: var(--accent-color);
+  color: white;
+  border-radius: 50%; /* Circular check mark */
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2); /* Shadow for depth */
+}
+
+.image-choice:has(:checked)::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 12px;
+  box-shadow: 0 0 0 4px var(--accent-color) inset;
+}
+
+.prompt-box {
+  display: flex; /* Flex layout for better alignment */
+  align-items: center; /* Vertically align the elements */
+  gap: 12px; /* Space between input and button */
+  margin-top: 32px; /* Extra spacing above the box */
+  background: #f8f8f8; /* Light background for the prompt box */
+  padding: 10px; /* Padding inside the box */
+  border-radius: 8px; /* Rounded corners */
+}
+
+input {
+  flex-grow: 1; /* Input takes up remaining space */
+  border: 2px solid #ccc; /* Subtle border */
+  border-radius: 8px; /* Rounded corners for the input */
+  padding: 10px 15px; /* Spacious padding for text */
+  font-size: 16px; /* Readable font size */
+  color: #333; /* Text color */
+  background-color: #fff; /* White background for the input */
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.1); /* Subtle inner shadow */
+}
+
+input:focus {
+  border-color: var(--accent-color); /* Highlight input on focus */
+  outline: none; /* Remove default outline */
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.1), 0 0 0 2px var(--accent-color); /* Add focus shadow */
+}
+
+button {
+  padding: 0 20px; /* Horizontal padding */
+  font-size: 16px; /* Font size matches input */
+  font-weight: 600; /* Slightly bolder font */
+  color: white; /* White text */
+  background-color: var(--accent-color); /* Accent color background */
+  border: none; /* No border */
+  border-radius: 8px; /* Match input border-radius */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: background-color 0.3s, transform 0.2s; /* Smooth transitions */
+}
+
+button:hover {
+  background-color: green;
+}
+
+button:active {
+  transform: scale(0.98); /* Small scale down on click */
+}
+
+button:focus {
+  outline: none; /* Remove default outline */
+  box-shadow: 0 0 0 2px var(--accent-color); /* Focus shadow */
+}
+
+
+@media (max-width: 768px) {
+  .image-picker {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* Adjust column size for smaller screens */
+  }
+}
+
+
+@media (max-width: 768px) {
+  .image-choice {
+    width: 45%; /* Adjust size for smaller devices */
+  }
+
+  main {
+    margin: 24px auto; /* Reduce margin on smaller screens */
+    padding: 16px; /* Adjust padding */
+  }
+}
+
+/* Footer styling */
+.footer {
+  background-color: #121212; /* Matching the body background for consistency */
+  color: #ffffff;
+  text-align: center;
+  padding: 1rem 0; /* Adjust padding */
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  backdrop-filter: blur(5px); /* Reduced blur for subtle effect */
+  -webkit-backdrop-filter: blur(5px);
+  font-size: 16px;
+  font-weight: 600;
+}
